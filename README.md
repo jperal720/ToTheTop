@@ -1,7 +1,10 @@
 # ToTheTop
 Mountain Climber - Time Traveler - Car Finder Unity Game
 
-Jonathan\n
+Jonathan
+
 Shawn
+
 Param
+
 George
