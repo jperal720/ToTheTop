@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class BossBullets : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public GameObject bullet;
+    public Transform bulletSpawn;
+    //public Transform player;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
+    }
+
+    void Shoot()
+    {
+        Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
+        //shoot
+    }
 }
