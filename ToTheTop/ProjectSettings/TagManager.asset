@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Objects
+  - Bullet
+  - Arena
+  - Wall1
+  - Wall2
+  - Wall
   layers:
   - Default
   - TransparentFX
