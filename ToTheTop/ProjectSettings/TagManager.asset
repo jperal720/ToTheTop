@@ -10,6 +10,7 @@ TagManager:
   - Wall2
   - Bullet
   - Wall
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - 
   - Ladder
   - Player
-  - 
+  - bullets
   - 
   - 
   - 
@@ -49,6 +50,12 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: WolrdObjects
+    uniqueID: 2221509835
+    locked: 0
+  - name: bullets
+    uniqueID: 3904793467
     locked: 0
   - name: Player
     uniqueID: 4125314295

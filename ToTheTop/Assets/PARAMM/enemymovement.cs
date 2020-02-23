@@ -15,13 +15,14 @@ public class enemymovement : MonoBehaviour
     private bool right, left;
     private void Start()
     {
-        speed = Random.Range(1f, 3.0f);
+        speed = Random.Range(10f, 20f);
         radius = Random.Range(30.0f, 50.0f);
         enemydistance = 8f;
     }
     // Update is called once per frame
     void Update()
     {
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         if (target.position.x - transform.position.x < 0)
         {
             TurnLeft();

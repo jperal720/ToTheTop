@@ -51,7 +51,7 @@ public class bossHealthMechanics : MonoBehaviour {
             //once the boss has reached the spawnPoint
             else
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 1; i++)
                 {
                     //spawn enemies; wait a couple of seconds per enemy then go back to regular path
                     Instantiate(enemySpawn, spawnPoint.transform.position, Quaternion.identity);
