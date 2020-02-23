@@ -40,14 +40,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("attacking");
             mouseclick = true;
         }
-
-
-       
-
-
-
 
 
         Jump();

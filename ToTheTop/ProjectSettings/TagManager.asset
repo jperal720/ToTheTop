@@ -20,6 +20,7 @@ TagManager:
   - 
   - 
   - Ladder
+  - Player
   - 
   - 
   - 
@@ -41,9 +42,14 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Background
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2483214345
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 4125314295
     locked: 0

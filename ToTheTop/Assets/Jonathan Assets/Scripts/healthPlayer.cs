@@ -7,6 +7,7 @@ public class healthPlayer : MonoBehaviour
 {
 
     [SerializeField] private float hp;
+
     private float enemyDamage;
     //private GameObject Bullet;
 
