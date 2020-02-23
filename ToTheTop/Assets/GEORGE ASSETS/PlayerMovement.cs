@@ -57,7 +57,15 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+<<<<<<< Updated upstream
             isClimbing = false;
+=======
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                isClimbing = false;
+                //animator.SetFloat("Climb Speed", 0.0f);
+            }
+>>>>>>> Stashed changes
         }
 
         if (isClimbing == true)
