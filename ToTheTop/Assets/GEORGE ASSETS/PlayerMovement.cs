@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpHeight = 5f;
     public bool isGrounded = false;
+    public Animator animator;
+    public bool keepPlaying;
 
     ///*
     //private Rigidbody2D rb;
@@ -15,25 +17,83 @@ public class PlayerMovement : MonoBehaviour
     private float inputVertical;
     //*/
     public bool isClimbing = false;
-
+    private bool right, left;
+    private bool mouseclick = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        right = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Jump();
+        if (mouseclick == false)
+        {
+            animator.SetFloat("Attack", 0.0f);
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+         animator.SetFloat("Attack", 1.0f);
+            StartCoroutine(WaitForHalfASecond());
+        }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            mouseclick = true;
+        }
+
+
+       
+
+
+
+
+
+        Jump();
+        
         Ladder();
+        if (isClimbing) {
+            animator.SetFloat("Climb Speed", 1.0f);
+        }
+        else
+        {
+            animator.SetFloat("Climb Speed", 0.0f);
+        }
 
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+        if(movement.x < 0)
+        {
+            TurnLeft();
+        }
+        if (movement.x > 0)
+        {
+            TurnRight();
+        }
+        animator.SetFloat("Speed",Mathf.Abs(movement.x * Time.deltaTime * moveSpeed));
         transform.position += movement * Time.deltaTime * moveSpeed;
-
+        
     }
 
+    void TurnLeft()
+    {   if (left) { 
+            return;
+                }
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        left = true;
+        right = false;
+    }
+
+    void TurnRight()
+    {
+        if (right)
+        {
+            return;
+        }
+        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        left = false;
+        right = true;
+    }
 
     void Jump()
     {
@@ -80,4 +140,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     //*/
+    IEnumerator WaitForHalfASecond()
+    {
+        yield return new WaitForSeconds(0.5f);
+        animator.SetFloat("Attack", 0.0f);
+    }
 }
