@@ -8,12 +8,12 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 5f;
     public bool isGrounded = false;
 
-    /*
-    private Rigidbody2D rb;
+    ///*
+    //private Rigidbody2D rb;
     public float laddis;
     public LayerMask whatIsLadder;
     private float inputVertical;
-    */
+    //*/
     public bool isClimbing = false;
 
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Jump();
 
-        //Ladder();
+        Ladder();
 
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * moveSpeed;
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
       
     }
 
-    /*
+   ///*
     void Ladder()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, laddis, whatIsLadder);
@@ -57,24 +57,27 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            isClimbing = false;
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                isClimbing = false;
+            }
         }
 
-        if (isClimbing == true)
+        if (isClimbing == true && hitInfo.collider != null)
         {
-            Vector3 moveup = new Vector3(Input.GetAxis("Vertical"), 0f, 0f);
+            Vector3 moveup = new Vector3(0f,Input.GetAxis("Vertical"), 0f);
             transform.position += moveup * Time.deltaTime * moveSpeed;
-            rb.gravityScale = 0;
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             
             inputVertical = Input.GetAxis("Vertical");
-            rb.velocity = new Vector2(rb.velocity.x, inputVertical * Time.deltaTime* moveSpeed);
-            rb.gravityScale = 0;
+            //rb.velocity = new Vector2(rb.velocity.x, inputVertical * Time.deltaTime* moveSpeed);
+            //rb.gravityScale = 0;
             
         }
         else
         {
-            rb.gravityScale = 5;
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
         }
     }
-    */
+    //*/
 }
