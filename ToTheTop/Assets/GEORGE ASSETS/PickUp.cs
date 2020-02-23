@@ -9,15 +9,19 @@ public class PickUp : MonoBehaviour
     private Text pickUpText;
 
     private bool pickUpAllowed;
+    private Inventory inventory;
+    public GameObject item;
 
 
     // Start is called before the first frame update
     private void Start()
     {
         pickUpText.gameObject.SetActive(false);
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
     }
 
     // Update is called once per frame
+    
     private void Update()
     {
         if (pickUpAllowed && Input.GetKeyDown(KeyCode.E))
@@ -25,7 +29,7 @@ public class PickUp : MonoBehaviour
             pickUp();
         }
     }
-
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name.Equals("Player"))
@@ -43,9 +47,23 @@ public class PickUp : MonoBehaviour
             pickUpAllowed = false;
         }
     }
-
+   
     private void pickUp()
     {
+        ///*
+        for (int i = 0; i < inventory.slots.Length; i++)
+        {
+            if (inventory.isFull[i] == false)
+            {
+                inventory.isFull[i] = true;
+                Instantiate(item, inventory.slots[i].transform,false);
+                //Destroy(gameObject);
+                Destroy(gameObject);
+                break;
+            }
+        }
+        //*/
         Destroy(gameObject);
     }
+    
 }
