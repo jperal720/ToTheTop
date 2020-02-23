@@ -8,6 +8,7 @@ public class bossHealthMechanics : MonoBehaviour {
     public Transform spawnPoint;
     public GameObject enemySpawn;
     public GameObject Boss;
+    public GameObject player;
 
     //call amount of damage the player will be able to do
 
