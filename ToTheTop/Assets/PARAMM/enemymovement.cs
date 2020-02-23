@@ -6,12 +6,18 @@ public class enemymovement : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public float speed;
+    float speed;
     public Transform target;
-    public float radius;
+    float radius;
     private bool check = false;
-    public float enemydistance;
+    float enemydistance;
 
+    private void Start()
+    {
+        speed = Random.Range(2f, 6.0f);
+        radius = Random.Range(30.0f, 50.0f);
+        enemydistance = 5f;
+    }
     // Update is called once per frame
     void Update()
     {   if (Vector2.Distance(transform.position, target.position) < radius && check==false) {
