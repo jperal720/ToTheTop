@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 894602763}
   - component: {fileID: 894602764}
   m_Layer: 0
-  m_Name: Bullet Spawn
+  m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -649,11 +649,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 894602762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edb24eef06ccf934b842cfc74a482cf5, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ed5b1a4f01caaa40b7a0b2a329d9434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 6310100592869550015, guid: cf08a79acf973854f90d4cd586cdbf9c, type: 3}
+  bullet: {fileID: 6748060655043725315, guid: 7b108d36249f8fb43adec3f775eb7723, type: 3}
   bulletSpawn: {fileID: 894602763}
+  numberOfBullets: 8
 --- !u!1 &902400295
 GameObject:
   m_ObjectHideFlags: 0

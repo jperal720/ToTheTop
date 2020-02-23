@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossBullets : MonoBehaviour {
+public class EnemyBullets : MonoBehaviour {
 
     public GameObject bullet;
     public Transform bulletSpawn;
