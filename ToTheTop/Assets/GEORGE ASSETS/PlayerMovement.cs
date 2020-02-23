@@ -8,6 +8,14 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 5f;
     public bool isGrounded = false;
 
+    /*
+    private Rigidbody2D rb;
+    public float laddis;
+    public LayerMask whatIsLadder;
+    private float inputVertical;
+    */
+    public bool isClimbing = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,17 +26,55 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Jump();
+
+        //Ladder();
+
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * moveSpeed;
+
     }
 
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && isGrounded == true)
+        if (Input.GetButtonDown("Jump") && (isGrounded == true || isClimbing == true))
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
         }
       
     }
+
+    /*
+    void Ladder()
+    {
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, laddis, whatIsLadder);
+        if (hitInfo.collider != null)
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                isClimbing = true;
+            }
+        }
+        else
+        {
+            isClimbing = false;
+        }
+
+        if (isClimbing == true)
+        {
+            Vector3 moveup = new Vector3(Input.GetAxis("Vertical"), 0f, 0f);
+            transform.position += moveup * Time.deltaTime * moveSpeed;
+            rb.gravityScale = 0;
+            
+            inputVertical = Input.GetAxis("Vertical");
+            rb.velocity = new Vector2(rb.velocity.x, inputVertical * Time.deltaTime* moveSpeed);
+            rb.gravityScale = 0;
+            
+        }
+        else
+        {
+            rb.gravityScale = 5;
+        }
+    }
+    */
 }
