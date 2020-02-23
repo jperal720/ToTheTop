@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class bossHealthMechanics : MonoBehaviour {
 
-    private float hp;
+    private float hp = 100f;
     public Transform spawnPoint;
     public GameObject enemySpawn;
     public GameObject Boss;
