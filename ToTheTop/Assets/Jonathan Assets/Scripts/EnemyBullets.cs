@@ -10,8 +10,10 @@ public class EnemyBullets : MonoBehaviour {
 
     private void Update()
     {
-        if (GetComponent<Bullet>().ballAlive == true) { return; }
-        Shoot();
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Shoot();
+        }
     }
 
     void Shoot()
